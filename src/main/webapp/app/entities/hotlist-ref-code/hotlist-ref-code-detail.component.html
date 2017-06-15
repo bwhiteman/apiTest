@@ -1,0 +1,33 @@
+
+<div *ngIf="hotlistRefCode">
+    <h2><span jhiTranslate="apiTestApp.hotlistRefCode.detail.title">Hotlist Ref Code</span> {{hotlistRefCode.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apiTestApp.hotlistRefCode.code">Code</span></dt>
+        <dd>
+            <span>{{hotlistRefCode.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="apiTestApp.hotlistRefCode.name">Name</span></dt>
+        <dd>
+            <span>{{hotlistRefCode.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="apiTestApp.hotlistRefCode.dbKey">Db Key</span></dt>
+        <dd>
+            <span>{{hotlistRefCode.dbKey}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'hotlist-ref-code/'+ hotlistRefCode.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="apiTestApp.hotlist.home.title">Hotlists</span>
+        <button class="btn btn-primary float-right create-hotlist" [routerLink]="['/', { outlets: { popup: ['hotlist-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="apiTestApp.hotlist.home.createLabel">
+            Create new Hotlist
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="hotlists">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="apiTestApp.hotlist.value">Value</span></th>
+            <th><span jhiTranslate="apiTestApp.hotlist.dbKey">Db Key</span></th>
+            <th><span jhiTranslate="apiTestApp.hotlist.hotlistRefCode">Hotlist Ref Code</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let hotlist of hotlists ;trackBy: trackId">
+                <td><a [routerLink]="['../hotlist', hotlist.id ]">{{hotlist.id}}</a></td>
+                <td>{{hotlist.value}}</td>
+                <td>{{hotlist.dbKey}}</td>
+                <td>
+                    <div *ngIf="hotlist.hotlistRefCode">
+                        <a [routerLink]="['../hotlist-ref-code', hotlist.hotlistRefCode?.id ]" >{{hotlist.hotlistRefCode?.code}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../hotlist', hotlist.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'hotlist/'+ hotlist.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'hotlist/'+ hotlist.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

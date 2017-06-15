@@ -1,0 +1,23 @@
+{
+    "apiTestApp": {
+        "hotlist" : {
+            "home": {
+                "title": "Hotlists",
+                "createLabel": "Create a new Hotlist",
+                "createOrEditLabel": "Create or edit a Hotlist"
+            },
+            "created": "A new Hotlist is created with identifier {{ param }}",
+            "updated": "A Hotlist is updated with identifier {{ param }}",
+            "deleted": "A Hotlist is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Hotlist {{ id }}?"
+            },
+            "detail": {
+                "title": "Hotlist"
+            },
+            "value": "Value",
+            "dbKey": "Db Key",
+            "hotlistRefCode": "Hotlist Ref Code"
+        }
+    }
+}
