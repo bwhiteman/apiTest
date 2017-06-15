@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <label jhiTranslate="apiTestApp.hotlist.hotlistRefCode" for="field_hotlistRefCode">Hotlist Ref Code</label>
-            <select class="form-control" id="field_hotlistRefCode" name="hotlistRefCode" [(ngModel)]="hotlist.hotlistRefCode">
+            <select class="form-control" id="field_hotlistRefCode" name="hotlistRefCode" [(ngModel)]="hotlist.hotlistRefCode" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="hotlistRefCodeOption.id === hotlist.hotlistRefCode?.id ? hotlist.hotlistRefCode : hotlistRefCodeOption" *ngFor="let hotlistRefCodeOption of hotlistrefcodes; trackBy: trackHotlistRefCodeById">{{hotlistRefCodeOption.code}}</option>
             </select>

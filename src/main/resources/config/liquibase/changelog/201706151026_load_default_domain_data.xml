@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added default domain data.
+    -->
+    <changeSet id="201706151026" author="ryhip">
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/hotlist.csv"
+                  separator=";"
+                  tableName="hotlist"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/hotlistrefcode.csv"
+                  separator=";"
+                  tableName="hotlist_ref_code"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/person.csv"
+                  separator=";"
+                  tableName="person"/>
+
+    </changeSet>
+</databaseChangeLog>

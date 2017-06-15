@@ -28,8 +28,7 @@ public class Hotlist implements Serializable {
     @Column(name = "db_key", nullable = false)
     private String dbKey;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private HotlistRefCode hotlistRefCode;
 
     public Long getId() {

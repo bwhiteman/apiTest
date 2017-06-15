@@ -9,8 +9,8 @@ entity HotlistRefCode {
     dbKey String required
 }
 
-relationship OneToOne {
-	Hotlist{hotlistRefCode(code)} to HotlistRefCode
+relationship OneToMany {
+	HotlistRefCode to Hotlist{hotlistRefCode(code)}
 }
 
 entity Person {

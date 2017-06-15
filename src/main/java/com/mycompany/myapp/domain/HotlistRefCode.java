@@ -1,9 +1,12 @@
 package com.mycompany.myapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -31,6 +34,10 @@ public class HotlistRefCode implements Serializable {
     @NotNull
     @Column(name = "db_key", nullable = false)
     private String dbKey;
+
+    @OneToMany(mappedBy = "hotlistRefCode")
+    @JsonIgnore
+    private Set<Hotlist> hotlists = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -77,6 +84,31 @@ public class HotlistRefCode implements Serializable {
 
     public void setDbKey(String dbKey) {
         this.dbKey = dbKey;
+    }
+
+    public Set<Hotlist> getHotlists() {
+        return hotlists;
+    }
+
+    public HotlistRefCode hotlists(Set<Hotlist> hotlists) {
+        this.hotlists = hotlists;
+        return this;
+    }
+
+    public HotlistRefCode addHotlist(Hotlist hotlist) {
+        this.hotlists.add(hotlist);
+        hotlist.setHotlistRefCode(this);
+        return this;
+    }
+
+    public HotlistRefCode removeHotlist(Hotlist hotlist) {
+        this.hotlists.remove(hotlist);
+        hotlist.setHotlistRefCode(null);
+        return this;
+    }
+
+    public void setHotlists(Set<Hotlist> hotlists) {
+        this.hotlists = hotlists;
     }
 
     @Override

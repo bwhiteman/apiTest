@@ -36,19 +36,8 @@ export class HotlistDialogComponent implements OnInit {
     ngOnInit() {
         this.isSaving = false;
         this.authorities = ['ROLE_USER', 'ROLE_ADMIN'];
-        this.hotlistRefCodeService
-            .query({filter: 'hotlist-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.hotlist.hotlistRefCode || !this.hotlist.hotlistRefCode.id) {
-                    this.hotlistrefcodes = res.json;
-                } else {
-                    this.hotlistRefCodeService
-                        .find(this.hotlist.hotlistRefCode.id)
-                        .subscribe((subRes: HotlistRefCode) => {
-                            this.hotlistrefcodes = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.hotlistRefCodeService.query()
+            .subscribe((res: ResponseWrapper) => { this.hotlistrefcodes = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {

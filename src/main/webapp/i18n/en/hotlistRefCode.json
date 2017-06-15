@@ -17,7 +17,8 @@
             },
             "code": "Code",
             "name": "Name",
-            "dbKey": "Db Key"
+            "dbKey": "Db Key",
+            "hotlist": "Hotlist"
         }
     }
 }

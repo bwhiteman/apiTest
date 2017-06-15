@@ -1,0 +1,11 @@
+id;alien_num;first_name;last_name;date_of_birth;country_of_birth;db_key
+1;A123456789;Roger;Smith;2000-01-19;Canada;ABC123
+2;A123456789;Mark;Thompson;1990-01-19;Jamaica;ABC123
+3;A123456789;Tom;Sawyer;1970-01-19;New Zealand;ABC123
+4;A123456789;Junior;Smith;1989-01-19;Austria;ABC123
+5;A123456789;Dave;Jones;1955-01-19;Japan;ABC123
+6;A123456789;Jane;Smith;1964-01-19;India;ABC123
+7;A123456789;Sonia;Jones;2001-01-19;China;ABC123
+8;A123456789;Mary;Smith;1995-01-19;United Kingdom;ABC123
+9;A123456789;Elise;Jones;1984-01-19;France;ABC123
+10;A123456789;Martha;Smith;1991-01-19;Spain;ABC123
