@@ -1,0 +1,23 @@
+entity Hotlist {
+	value String required,
+    dbKey String required
+}
+
+entity HotlistRefCode {
+	code String required,
+    name String required,
+    dbKey String required
+}
+
+relationship OneToOne {
+	Hotlist{hotlistRefCode(code)} to HotlistRefCode
+}
+
+entity Person {
+	alienNum String required,
+    firstName String required,
+    lastName String required,
+    dateOfBirth LocalDate required,
+    countryOfBirth String required,
+    dbKey String required
+}
