@@ -131,6 +131,7 @@ repositories {
 }
 
 dependencies {
+    compile "org.postgresql:postgresql:42.1.1"
     compile "io.github.jhipster:jhipster:${jhipster_server_version}"
     compile "io.dropwizard.metrics:metrics-core:${dropwizard_metrics_version}"
     compile "io.dropwizard.metrics:metrics-jcache:${dropwizard_metrics_version}"

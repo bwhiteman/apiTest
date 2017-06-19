@@ -28,6 +28,7 @@
     "rxjs": "5.4.0",
     "swagger-ui": "2.2.10",
     "tether": "1.4.0",
+    "yarn": "^0.24.5",
     "zone.js": "0.8.11"
   },
   "devDependencies": {

@@ -11,7 +11,6 @@ export class PersonPopupService {
         private modalService: NgbModal,
         private router: Router,
         private personService: PersonService
-
     ) {}
 
     open(component: Component, id?: number | any): NgbModalRef {
