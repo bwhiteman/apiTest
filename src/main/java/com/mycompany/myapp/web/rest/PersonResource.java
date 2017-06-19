@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.domain.Person;
 
 import com.mycompany.myapp.repository.PersonRepository;
+import com.mycompany.myapp.service.KafkaService;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -31,8 +32,12 @@ public class PersonResource {
 
     private final PersonRepository personRepository;
 
-    public PersonResource(PersonRepository personRepository) {
+    private final KafkaService kafkaService;
+
+    public PersonResource(PersonRepository personRepository, KafkaService kafkaService) {
+
         this.personRepository = personRepository;
+        this.kafkaService = kafkaService;
     }
 
     /**
@@ -46,10 +51,14 @@ public class PersonResource {
     @Timed
     public ResponseEntity<Person> createPerson(@Valid @RequestBody Person person) throws URISyntaxException {
         log.debug("REST request to save Person : {}", person);
+
         if (person.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new person cannot already have an ID")).body(null);
         }
         Person result = personRepository.save(person);
+
+        kafkaService.send(result);
+
         return ResponseEntity.created(new URI("/api/people/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
